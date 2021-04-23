@@ -1,19 +1,12 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${title}"/>
+    <title>Главная страница</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-success border-bottom shadow-sm">
-        <h5 class="my-0 mr-md-auto font-weight-normal"><b>Blog</b></h5>
-            <nav class="my-2 my-md-0 mr-md-3">
-                <a class="p-2 text-dark" href="#"><b>Главная</b></a>
-                <a class="p-2 text-dark" href="#"><b>Блог</b></a>
-                <a class="p-2 text-dark" href="#"><b>О нас</b></a>
-            </nav>
-    </div>
+    <header th:insert="blocks/header :: header"></header>
     <main>
 
         <section class="py-5 text-center container">
@@ -183,14 +176,6 @@
             </div>
         </div>
     </main>
-    <footer class="text-muted py-5">
-        <div class="container">
-            <p class="float-end mb-1">
-                <a href="#">Back to top</a>
-            </p>
-            <p class="mb-1">Album example is © Bootstrap, but please download and customize it for yourself!</p>
-            <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.0/getting-started/introduction/">getting started guide</a>.</p>
-        </div>
-    </footer>
+    <div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>
