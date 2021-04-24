@@ -10,11 +10,12 @@
 <header th:insert="blocks/header :: header"></header>
 
 <div class="container mt-5">
-    <h1>Блог сайта</h1>
-    <div th:each="element : ${posts}" class="alert alert-info mt-2">
-        <h3 th:text="${element.title}"></h3>
-        <p th:text="${element.anons}"></p>
-        <a th:href="'/blog/' + ${element.id}" class="btn btn-warning">Детальнее</a>
+    <div th:each="element : ${post}" class="alert alert-info mt-2">
+        <h1 th:text="${element.title}"></h1>
+        <p th:text="${element.description}"></p>
+        <p th:text="${element.views}"></p>
+        <a th:href="'/blog/' + ${element.id} + '/edit'" class="btn btn-warning">Редактировать</a>
+        <a th:href="'/blog/' + ${element.id} + '/delete'" class="btn btn-warning">Удалить</a>
     </div>
 </div>
 
