@@ -14,8 +14,10 @@
         <h1 th:text="${element.title}"></h1>
         <p th:text="${element.description}"></p>
         <p><b>Просмотры:</b> <span th:text="${element.views}"/></p>
-        <a th:href="'/blog/' + ${element.id} + '/edit'" class="btn btn-warning">Редактировать</a>
-        <a th:href="'/blog/' + ${element.id} + '/delete'" class="btn btn-warning">Удалить</a>
+        <a th:href="'/blog/' + ${element.id} + '/edit'" class="btn btn-warning">Редактировать</a><br><br>
+        <form th:action="'/blog/' + ${element.id} + '/delete'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
     </div>
 </div>
 

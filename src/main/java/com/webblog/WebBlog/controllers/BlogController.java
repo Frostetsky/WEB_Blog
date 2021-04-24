@@ -47,6 +47,8 @@ public class BlogController {
             return "redirect:/blog";
         }
         Optional<Post> post = postRepository.findById(id);
+        post.get().setViews(post.get().getViews()+1);
+        postRepository.save(post.get());
         List<Post> posts = new ArrayList<>();
         post.ifPresent(posts::add);
         model.addAttribute("post", posts);
@@ -75,6 +77,13 @@ public class BlogController {
         post.setAnons(anons);
         post.setDescription(description);
         postRepository.save(post);
+        return "redirect:/blog";
+    }
+
+    @PostMapping("/blog/{id}/delete")
+    public String blogPostDelete(@PathVariable(value = "id") Long id) {
+        Post post = postRepository.findById(id).orElseThrow();
+        postRepository.delete(post);
         return "redirect:/blog";
     }
 }
