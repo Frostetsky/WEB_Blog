@@ -27,6 +27,7 @@ public class Post {
         this.title = title;
         this.anons = anons;
         this.description = description;
+        this.views = 0L;
     }
 
     public Long getId() {
